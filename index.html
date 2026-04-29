@@ -1,11 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Git 实用技巧速查</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f6f8fa;
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1f2328;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-left: 4px solid #f64925; /* Git 橙色 */
+        }
+
+        .tip-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2328;
+            margin-bottom: 8px;
+        }
+
+        .tip-code {
+            background: #f7f7f7;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-family: "Consolas", "Monaco", monospace;
+            color: #24292f;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .tip-desc {
+            color: #586069;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
-    demo
+
+    <h1 class="title">Git 高频实用技巧 ✨</h1>
+
+    <div class="tip-card">
+        <div class="tip-title">1. 查看简洁的提交日志</div>
+        <div class="tip-code">git log --oneline --graph --all</div>
+        <div class="tip-desc">一行展示所有提交，还能看到分支结构，非常清晰。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">2. 撤销最近一次提交（不删除代码）</div>
+        <div class="tip-code">git reset --soft HEAD^</div>
+        <div class="tip-desc">撤回 commit，但代码保留，可重新修改后提交。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">3. 丢弃所有未提交的修改（危险！慎用）</div>
+        <div class="tip-code">git checkout .</div>
+        <div class="tip-desc">恢复到最近一次提交状态，未保存的修改会消失。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">4. 暂存当前工作（不想提交但要切分支）</div>
+        <div class="tip-code">git stash</div>
+        <div class="tip-desc">把代码临时藏起来，恢复用 git stash pop。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">5. 强制覆盖本地代码（与远程完全一致）</div>
+        <div class="tip-code">git fetch --all && git reset --hard origin/主分支名</div>
+        <div class="tip-desc">本地乱了，直接一键同步远程最新版。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">6. 修改最后一次提交信息</div>
+        <div class="tip-code">git commit --amend</div>
+        <div class="tip-desc">刚提交写错备注，用这个直接修改。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">7. 查看谁写了哪行代码</div>
+        <div class="tip-code">git blame 文件名</div>
+        <div class="tip-desc">查BUG神器，看每一行是谁写的。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">8. 删除本地已经合并过的分支</div>
+        <div class="tip-code">git fetch --prune</div>
+        <div class="tip-desc">清理本地无效分支，保持干净。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">9. 放弃某个文件的修改</div>
+        <div class="tip-code">git checkout -- 文件名</div>
+        <div class="tip-desc">只恢复单个文件，不影响其他代码。</div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-title">10. 把其他分支的某个提交合并过来</div>
+        <div class="tip-code">git cherry-pick 提交ID</div>
+        <div class="tip-desc">只拿需要的提交，非常灵活。</div>
+    </div>
+
 </body>
 </html>
